@@ -34,7 +34,7 @@ locals {
       protocol                   = "Tcp"
       source_port_range          = "*"
       destination_port_range     = "80"
-      source_address_prefix      = "AzureLoadBalancer"  # Only LB, not "*"
+      source_address_prefix      = "*"              # clients reach via LB only since VMSS has no PIP
       destination_address_prefix = "VirtualNetwork"
     },
     {
@@ -45,12 +45,12 @@ locals {
       protocol                   = "Tcp"
       source_port_range          = "*"
       destination_port_range     = "443"
-      source_address_prefix      = "AzureLoadBalancer"  # Only LB, not "*"
+      source_address_prefix      = "*"
       destination_address_prefix = "VirtualNetwork"
     },
     {
-      # SSH is routed through the LB NAT rules (ports 50000-50119 → 22)
-      # so its source is still AzureLoadBalancer
+      # SSH health probes and NAT rules genuinely come from LB probe IP
+      # so AzureLoadBalancer tag works correctly here
       name                       = "allow-ssh-from-lb"
       priority                   = 102
       direction                  = "Inbound"
@@ -58,11 +58,22 @@ locals {
       protocol                   = "Tcp"
       source_port_range          = "*"
       destination_port_range     = "22"
-      source_address_prefix      = "AzureLoadBalancer"  # Only LB NAT, not "*"
+      source_address_prefix      = "AzureLoadBalancer"
       destination_address_prefix = "VirtualNetwork"
     },
     {
-      # Catch-all deny — blocks every other inbound connection
+      # Health probe traffic from Azure platform
+      name                       = "allow-health-probe"
+      priority                   = 103
+      direction                  = "Inbound"
+      access                     = "Allow"
+      protocol                   = "Tcp"
+      source_port_range          = "*"
+      destination_port_range     = "80"
+      source_address_prefix      = "AzureLoadBalancer"
+      destination_address_prefix = "VirtualNetwork"
+    },
+    {
       name                       = "deny-all-inbound"
       priority                   = 4096
       direction                  = "Inbound"
