@@ -9,9 +9,9 @@ region      = "centralindia"
 prefix      = "myapp"
 
 # # Scaling limits (assignment: min=2, max=5)
-# min_instances     = 2
-# max_instances     = 5
-# default_instances = 2
+min_instances     = 2
+max_instances     = 3
+default_instances = 2
 
 # # Network CIDRs
 # vnet_address_space = "10.0.0.0/16"

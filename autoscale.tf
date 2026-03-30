@@ -8,9 +8,9 @@ resource "azurerm_monitor_autoscale_setting" "autoscale" {
   profile {
     name = "autoscale"
     capacity {
-      default = 2
-      minimum = 2
-      maximum = 3
+      default = var.default_instances
+      minimum = var.max_instances
+      maximum = var.max_instances
     }
 
     # Scale OUT: CPU > 75% for 5 minutes → add 1 instance

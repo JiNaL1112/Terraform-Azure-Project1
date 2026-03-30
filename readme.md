@@ -11,6 +11,7 @@ You'll create a scalable web application infrastructure in Azure using Terraform
    - East US
    - West Europe
    - Southeast Asia
+   - Central India
 Also create the validation rule that restrict other regions
 
 ### Networking

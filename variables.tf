@@ -51,7 +51,7 @@ variable "min_instances" {
 variable "max_instances" {
   description = "Maximum number of VMSS instances"
   type        = number
-  default     = 5
+  default     = 3
 }
 
 variable "default_instances" {
