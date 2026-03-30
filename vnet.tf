@@ -10,7 +10,7 @@ resource "azurerm_resource_group" "rg" {
 
 resource "azurerm_virtual_network" "test" {
   name                = "${local.name_prefix}-vnet"
-  address_space       = [var.vnet_address_space]
+  address_space       = [local.network_config.vnet_address_space]
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   tags     = local.common_tags
@@ -22,7 +22,7 @@ resource "azurerm_subnet" "subnet" {
   name                 = "${local.name_prefix}-app-subnet"
   resource_group_name  = azurerm_resource_group.rg.name
   virtual_network_name = azurerm_virtual_network.test.name
-  address_prefixes     = [var.app_subnet_prefix]
+  address_prefixes     = [local.network_config.app_subnet_prefix]
 }
 
 # Create a subnet for management (e.g. jumpbox) - not used in this tutorial but good practice to separate from app subnet

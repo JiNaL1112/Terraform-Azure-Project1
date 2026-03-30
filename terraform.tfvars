@@ -14,6 +14,6 @@ max_instances     = 3
 default_instances = 2
 
 # # Network CIDRs
-# vnet_address_space = "10.0.0.0/16"
-# app_subnet_prefix  = "10.0.0.0/20"
-# mgmt_subnet_prefix = "10.0.16.0/24"
+vnet_address_space = "10.0.0.0/16"
+app_subnet_prefix  = "10.0.0.0/20"
+mgmt_subnet_prefix = "10.0.16.0/24"

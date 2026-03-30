@@ -20,6 +20,12 @@ locals {
   # ---------------------
   name_prefix = "${var.prefix}-${var.environment}"
 
+  network_config = {
+  vnet_address_space = var.vnet_address_space
+  app_subnet_prefix  = var.app_subnet_prefix
+  mgmt_subnet_prefix = var.mgmt_subnet_prefix
+}
+
   # ---------------------
   # NSG Rules
   # Only allow traffic originating from the Azure Load Balancer.
