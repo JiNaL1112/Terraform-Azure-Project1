@@ -27,14 +27,14 @@ Also create the validation rule that restrict other regions
 1. Set up a VMSS with:
    - Ubuntu 20.04 LTS
    - VM sizes with conditions based on environment(hint: use lookup function):
-     * Dev: Standard_B1s
-     * Stage: Standard_B2s
-     * Prod: Standard_B2ms
+     * Dev: Standard_D2s_v4
+     * Stage: Standard_D2s_v4
+     * Prod: Standard_D2s_v4
 2. Configure auto-scaling:
    - Scale in when CPU < 10%
-   - Scale out when CPU > 80%
+   - Scale out when CPU > 75%
    - Minimum instances: 2
-   - Maximum instances: 5
+   - Maximum instances: 3
 
 ### Load Balancer
 1. Create an Azure Load Balancer:
