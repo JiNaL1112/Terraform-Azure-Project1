@@ -9,7 +9,7 @@ resource "azurerm_monitor_autoscale_setting" "autoscale" {
     name = "autoscale"
     capacity {
       default = var.default_instances
-      minimum = var.max_instances
+      minimum = var.min_instances
       maximum = var.max_instances
     }
 
