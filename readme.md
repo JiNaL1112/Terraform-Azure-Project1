@@ -279,3 +279,32 @@ terraform destroy
 ## Project Structure on Azure Portal
 
 ![Azure Portal Overview](https://raw.githubusercontent.com/JiNaL1112/Terraform-Azure-Project1/main/images/Pasted%20image%2020260330184710.png)
+
+
+
+# Create a federated credential on your service principal
+az ad app federated-credential create \
+  --id <your-app-id> \
+  --parameters '{
+    "name": "github-actions",
+    "issuer": "https://token.actions.githubusercontent.com",
+    "subject": "repo:YOUR_ORG/YOUR_REPO:ref:refs/heads/main",
+    "audiences": ["api://AzureADTokenExchange"]
+  }'
+
+
+# Add a second credential for PRs too:
+az ad app federated-credential create \
+  --id <your-app-id> \
+  --parameters '{
+    "name": "github-actions-pr",
+    "issuer": "https://token.actions.githubusercontent.com",
+    "subject": "repo:YOUR_ORG/YOUR_REPO:pull_request",
+    "audiences": ["api://AzureADTokenExchange"]
+  }'
+
+3. Store Only These 3 Values as GitHub Secrets
+Go to your repo → Settings → Secrets and variables → Actions:
+Secret NameValueAZURE_CLIENT_IDApp (client) IDAZURE_TENANT_IDTenant IDAZURE_SUBSCRIPTION_IDSubscription ID
+
+
