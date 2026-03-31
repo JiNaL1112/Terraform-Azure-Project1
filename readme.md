@@ -40,7 +40,7 @@ Internet
 [NAT Gateway] ← Outbound internet access for instances
 ```
 
-![Architecture Diagram](images/diagram-export-3-30-2026-6_58_35-PM.png)
+![Architecture Diagram](https://raw.githubusercontent.com/JiNaL1112/Terraform-Azure-Project1/main/images/diagram-export-3-30-2026-6_58_35-PM.png)
 
 ---
 
@@ -103,7 +103,7 @@ Internet
 
 > **Why dynamic blocks?** NSG rules are defined as a list of objects in `locals.tf` and rendered using a `dynamic "security_rule"` block in `vnet.tf`. This avoids repetitive HCL and makes adding/removing rules as simple as editing the locals list.
 
-![NSG Dynamic Block](images/Pasted%20image%2020260330183908.png)
+![NSG Dynamic Block](https://raw.githubusercontent.com/JiNaL1112/Terraform-Azure-Project1/main/images/Pasted%20image%2020260330183908.png)
 
 ---
 
@@ -121,8 +121,9 @@ az vm list-skus \
   --output table
 ```
 
-![Available SKUs Query](images/Pasted%20image%2020260330184237.png)
-![SKU Results](images/Pasted%20image%2020260330184251.png)
+![Available SKUs Query](https://raw.githubusercontent.com/JiNaL1112/Terraform-Azure-Project1/main/images/Pasted%20image%2020260330184237.png)
+
+![SKU Results](https://raw.githubusercontent.com/JiNaL1112/Terraform-Azure-Project1/main/images/Pasted%20image%2020260330184251.png)
 
 #### VMSS Configuration
 
@@ -156,8 +157,9 @@ sku_name = lookup({
 
 > **Cooldown period:** Both scale-in and scale-out actions have a 5-minute cooldown (`PT5M`) to prevent rapid instance flapping.
 
-![Autoscale Configuration](images/Pasted%20image%2020260330183001.png)
-![Autoscale Rules](images/Pasted%20image%2020260330182514.png)
+![Autoscale Configuration](https://raw.githubusercontent.com/JiNaL1112/Terraform-Azure-Project1/main/images/Pasted%20image%2020260330183001.png)
+
+![Autoscale Rules](https://raw.githubusercontent.com/JiNaL1112/Terraform-Azure-Project1/main/images/Pasted%20image%2020260330182514.png)
 
 ---
 
@@ -172,7 +174,7 @@ sku_name = lookup({
 
 > **Why Standard SKU?** Standard Load Balancer is required for zone redundancy and works with Standard Public IPs. Basic SKU does not support availability zones.
 
-![Load Balancer Setup](images/Pasted%20image%2020260330183126.png)
+![Load Balancer Setup](https://raw.githubusercontent.com/JiNaL1112/Terraform-Azure-Project1/main/images/Pasted%20image%2020260330183126.png)
 
 ---
 
@@ -222,7 +224,7 @@ Dynamic blocks are used in two places to avoid repetitive HCL:
 
 > **Benefit:** Adding a new NSG rule only requires adding one object to the list in `locals.tf` — no changes needed in `vnet.tf`.
 
-![Dynamic Blocks](images/Pasted%20image%2020260330183908.png)
+![Dynamic Blocks](https://raw.githubusercontent.com/JiNaL1112/Terraform-Azure-Project1/main/images/Pasted%20image%2020260330183908.png)
 
 ---
 
@@ -270,8 +272,10 @@ terraform destroy
 
 ## Final View
 
-![Azure Portal - Resource Group](images/Pasted%20image%2020260330183833.png)
+![Azure Portal - Resource Group](https://raw.githubusercontent.com/JiNaL1112/Terraform-Azure-Project1/main/images/Pasted%20image%2020260330183833.png)
+
+---
 
 ## Project Structure on Azure Portal
 
-![Azure Portal Overview](images/Pasted%20image%2020260330184710.png)
+![Azure Portal Overview](https://raw.githubusercontent.com/JiNaL1112/Terraform-Azure-Project1/main/images/Pasted%20image%2020260330184710.png)
