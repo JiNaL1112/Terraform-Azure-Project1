@@ -2,7 +2,7 @@
 
 ## Overview
 
-You'll create a scalable web application infrastructure in Azure using Terraform. The infrastructure will include a Virtual Machine Scale Set (VMSS) behind a load balancer with proper security and scaling configurations.
+I have created a scalable web application infrastructure in Azure using Terraform. The infrastructure will include a Virtual Machine Scale Set (VMSS) behind a load balancer with proper security and scaling configurations.
 
 > **Tech Stack:** Terraform `>= 1.9.0` · AzureRM Provider `~> 4.14.0` · Ubuntu 22.04 LTS · Azure Load Balancer (Standard SKU)
 
