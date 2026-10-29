@@ -18,4 +18,10 @@ terraform {
 
 provider "azurerm" {
   features {}
+
+  # Tell the provider to use OIDC federated credentials
+  use_oidc        = true
+  client_id       = var.azure_client_id
+  tenant_id       = var.azure_tenant_id
+  subscription_id = var.azure_subscription_id
 }

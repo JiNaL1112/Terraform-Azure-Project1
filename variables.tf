@@ -80,3 +80,30 @@ variable "mgmt_subnet_prefix" {
   type        = string
   default     = "10.0.16.0/24"
 }
+
+
+variable "azure_client_id" {
+  description = "Azure Client ID (from GitHub secret)"
+  type        = string
+}
+
+variable "azure_tenant_id" {
+  description = "Azure Tenant ID (from GitHub secret)"
+  type        = string
+}
+
+variable "azure_subscription_id" {
+  description = "Azure Subscription ID (from GitHub secret)"
+  type        = string
+}
+
+
+variable "my_ip" {
+  description = "Public IP (CIDR) allowed to SSH, e.g. 203.0.113.25/32"
+  type        = string
+
+  validation {
+    condition     = can(cidrnetmask(var.my_ip)) && var.my_ip != "0.0.0.0/0"
+    error_message = "my_ip must be a valid CIDR and must not be 0.0.0.0/0."
+  }
+}
