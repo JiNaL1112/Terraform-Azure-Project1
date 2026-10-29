@@ -23,4 +23,4 @@ azure_client_id = "6fc9e92b-db64-4922-a4ab-49b2919d39da"
 azure_subscription_id = "2f4fdc5d-b5fe-43f5-b493-4000d77bc096"
 azure_tenant_id = "b4d9976d-c095-4323-9940-00d8e8f6df90"
 
-my_ip = "173.33.81.227"
+my_ip = "173.33.81.227/32"
